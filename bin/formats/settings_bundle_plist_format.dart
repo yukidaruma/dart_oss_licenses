@@ -51,9 +51,8 @@ class SettingsBundlePlistFormat extends FormatHoldable {
   /// Write formated text to file.
   @override
   void write() async {
-    Map environmentVars = Platform.environment;
     String directoryPath =
-        '${environmentVars["PWD"]}/ios/Runner/Settings.bundle';
+        '${Directory.current.path}/ios/Runner/Settings.bundle';
     if (FileSystemEntity.typeSync(directoryPath) ==
         FileSystemEntityType.notFound) {
       throw AssertionError(
@@ -83,7 +82,7 @@ ${rootOutput.join("\n")}
     doWrite(file, output);
 
     String subDirectoryPath =
-        '${environmentVars["PWD"]}/ios/Runner/Settings.bundle/com.ko2ic.dart-oss-licenses';
+        '${Directory.current.path}/ios/Runner/Settings.bundle/com.ko2ic.dart-oss-licenses';
     await new Directory(subDirectoryPath).create(recursive: true);
 
     tuples.forEach((tuple) {

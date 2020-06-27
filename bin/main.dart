@@ -66,8 +66,7 @@ main(List<String> arguments) async {
 
 /// acquire all the names of the using library.
 Iterable<dynamic> findPluginNames() {
-  Map environmentVars = Platform.environment;
-  String path = '${environmentVars["PWD"]}/pubspec.lock';
+  String path = '${Directory.current.path}/pubspec.lock';
 
   if (FileSystemEntity.typeSync(path) == FileSystemEntityType.notFound) {
     throw AssertionError(

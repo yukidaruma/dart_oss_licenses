@@ -50,9 +50,8 @@ class AboutLibrariesFormat extends FormatHoldable {
   /// Write formated text to file.
   @override
   void write() async {
-    Map environmentVars = Platform.environment;
     String directoryPath =
-        '${environmentVars["PWD"]}/android/app/src/main/res/values';
+        '${Directory.current.path}/android/app/src/main/res/values';
     String fullPath = "$directoryPath/license_strings.xml";
     await new Directory(directoryPath).create(recursive: true);
     var output = """\
